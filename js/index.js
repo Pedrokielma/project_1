@@ -1,10 +1,5 @@
 window.onload = () => {
-    document.getElementById('start').onclick = () => {
-      startGame();
-    };
+  const game = new Game();
+  game.start();
   
-    function startGame() {
-      const game = new Game();
-      game.start();
-    }
   };
