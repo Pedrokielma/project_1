@@ -11,6 +11,7 @@ class Game {
     this.canvasWidth = 500;
     this.canvasHeight = 700;
     this.intervalId = null;
+    this.life = 5;
   }
   start() {
     this.player = new Player(this);
@@ -35,9 +36,12 @@ class Game {
     );
   }
   createObstacles(){
-    if (this.frames % 60 == 0) {
+    if (this.frames % 120 == 0) {
       this.obstacles.push(new Obstacle(this));
     }
+  }
+  gameOver(){
+    clearInterval(this.intervalId)
   }
 
   update() {
@@ -49,9 +53,9 @@ class Game {
     this.obstacles.forEach((item) => {
       item.drawObstacle()
       item.move()
+      item.loosingPoinst()
     });
 
- 
 
     this.player.draw();
   
