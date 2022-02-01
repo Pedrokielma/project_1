@@ -1,5 +1,5 @@
 class Controls {
-  constructor(game) {
+  constructor(game, bullet) {
     this.game = game;
     this.player = this.game.player;
   }
@@ -16,6 +16,9 @@ class Controls {
           if (this.player.x > 25) {
             this.player.x -= 25;
           }
+          break;
+        case 'Space':
+          this.game.createBullet();
           break;
       }
     });

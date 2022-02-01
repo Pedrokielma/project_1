@@ -7,7 +7,7 @@ class Obstacle {
     this.width = 20;
     this.x = Math.floor(Math.random() * 450);
     this.y = 0;
-    this.speed = Math.floor(Math.random() * 5 + 1);
+    this.speed = Math.floor(Math.random() * 3 + 1);
   }
   drawObstacle() {
     this.game.ctx.fillStyle = "black";
