@@ -20,14 +20,7 @@ class Bullet {
     return this.y + this.height;
   }
 
-  hitTarget(obstacle) {
-    return !(
-      this.bottom() < obstacle.top() ||
-      this.top() > obstacle.bottom() ||
-      this.right() < obstacle.left() ||
-      this.left() > obstacle.right()
-    );
-  }
+
 
   moveBullet() {
     this.y -= 6;

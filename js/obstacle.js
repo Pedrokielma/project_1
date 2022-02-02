@@ -23,6 +23,15 @@ class Obstacle {
   bottom() {
     return this.y + this.height;
   }
+  
+  checkCollision(bullet) {
+    return !(
+      this.bottom() < bullet.top() ||
+      this.top() > bullet.bottom() ||
+      this.right() < bullet.left() ||
+      this.left() > bullet.right()
+    );
+  }
 
   drawObstacle() {
     this.game.ctx.fillStyle = "black";

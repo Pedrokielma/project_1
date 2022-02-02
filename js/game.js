@@ -48,30 +48,36 @@ class Game {
     clearInterval(this.intervalId);
   }
   distroyObstacles() {
-    const bullet = this.bullet;
-    console.log(bullet);
+    // console.log(bullet);
+    this.obstacles.forEach((eachObstacle, index, arr)=>{
+      this.bullet.forEach((eachBullet)=>{
+        if (eachObstacle.checkCollision(eachBullet)){
+          arr.splice(index, 1)
+        }
+      })
+    })
 
-    // const crashed = this.obstacles.some(function (obstacle) {
-    //   return bullet.hitTarget(obstacle);
-    // });
-    // if (crashed) {
-    //   // this.stop()
-    //   console.log('crashed')
-    // }
+   
 
-  bullet.forEach((item)=> {
-    const crashed = this.obstacles.some(function (obstacle, index) {
-      console.log(obstacle, index)
+  //   let indexObstacle = [];
+  // bullet.forEach((item)=> {
+  //   const crashed = this.obstacles.some(function (obstacle, index) {
+  //     //  
+  //     item.hitTarget(obstacle)
+  //     if(item.hitTarget(obstacle)){
       
-      return item.hitTarget(obstacle)
+  //     console.log(index);
+  //     console.log(obstacle);
+  //   }
+  //     return item.hitTarget(obstacle)
       
-    });
-    if(crashed){
+  //   });
+    
+       
       //this.earaseObstavcle()
-      console.log('crashed')
-    }
+   
     //console.log(crashed)
-  })
+  
   }
 
 
