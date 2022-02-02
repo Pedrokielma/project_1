@@ -17,7 +17,7 @@ class Controls {
             this.player.x -= 25;
           }
           break;
-        case 'Space':
+        case "Space":
           this.game.createBullet();
           break;
       }

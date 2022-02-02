@@ -16,7 +16,6 @@ class Game {
   }
   start() {
     this.player = new Player(this);
-    
 
     const controls = new Controls(this);
     controls.move();
@@ -36,26 +35,45 @@ class Game {
       this.canvasHeight
     );
   }
-  createObstacles(){
+  createObstacles() {
     if (this.frames % 120 == 0) {
       this.obstacles.push(new Obstacle(this));
     }
   }
-  // loosingPoinst() {
-    //     if (this.y > 700) {
-    //       this.game.life 
-    //       console.log(this.game.life)
-    //     } else if (this.game.life == 0) {
-    //         this.game.gameOver()
-    //         console.log("game Over")
-    //     }
-    //   }
-  createBullet(){
+
+  createBullet() {
     this.bullet.push(new Bullet(this));
   }
-  gameOver(){
-    clearInterval(this.intervalId)
+  gameOver() {
+    clearInterval(this.intervalId);
   }
+  distroyObstacles() {
+    const bullet = this.bullet;
+    console.log(bullet);
+
+    // const crashed = this.obstacles.some(function (obstacle) {
+    //   return bullet.hitTarget(obstacle);
+    // });
+    // if (crashed) {
+    //   // this.stop()
+    //   console.log('crashed')
+    // }
+
+  bullet.forEach((item)=> {
+    const crashed = this.obstacles.some(function (obstacle, index) {
+      console.log(obstacle, index)
+      
+      return item.hitTarget(obstacle)
+      
+    });
+    if(crashed){
+      //this.earaseObstavcle()
+      console.log('crashed')
+    }
+    //console.log(crashed)
+  })
+  }
+
 
   update() {
     this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
@@ -64,28 +82,16 @@ class Game {
     this.createObstacles();
 
     this.obstacles.forEach((item, i) => {
-      item.drawObstacle()
-      item.move()
-      item.loosingPoinst(i)
-      // loosingPoinst() {
-            // if (this.y > 700) {
-            //   this.game.life 
-            //   item.pop()
-            //   console.log(this.game.life)
-            // } else if (this.game.life == 0) {
-            //     this.game.gameOver()
-            //     console.log("game Over")
-            // }
-          // }
+      item.drawObstacle();
+      item.move();
+      item.loosingPoinst(i);
     });
 
     this.bullet.forEach((item) => {
-      item.drawBullet()
-      item.moveBullet()
-    })
-
-
+      item.drawBullet();
+      item.moveBullet();
+    });
+    this.distroyObstacles();
     this.player.draw();
-  
   }
 }
