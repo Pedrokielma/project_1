@@ -63,10 +63,10 @@ class Game {
 
     this.createObstacles();
 
-    this.obstacles.forEach((item) => {
+    this.obstacles.forEach((item, i) => {
       item.drawObstacle()
       item.move()
-      item.loosingPoinst()
+      item.loosingPoinst(i)
       // loosingPoinst() {
             // if (this.y > 700) {
             //   this.game.life 
