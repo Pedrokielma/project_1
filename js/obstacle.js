@@ -3,11 +3,12 @@ class Obstacle {
     // Math.random() * (max - min) + min;
     // Math.floor(Math.random() * max);
     this.game = game;
-    this.height = 20;
-    this.width = 20;
+    this.height = 30;
+    this.width = 40;
     this.x = Math.floor(Math.random() * 450);
     this.y = 0;
     this.speed = Math.floor(Math.random() * 3 + 1);
+    this.ufoImg = new Image ()
   }
   
 
@@ -34,10 +35,14 @@ class Obstacle {
   }
 
   drawObstacle() {
-    this.game.ctx.fillStyle = "black";
+    // this.game.ctx.fillStyle = "black";
 
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
-  }
+    // this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.ufoImg.src = "./images/ets.png";
+
+    this.game.ctx.drawImage(this.ufoImg, this.x, this.y, this.width, this.height);
+ 
+}
  
   move() {
     this.y += this.speed;

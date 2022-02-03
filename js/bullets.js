@@ -3,7 +3,7 @@ class Bullet {
     this.game = game;
     this.height = 10;
     this.width = 2;
-    this.x = this.game.player.x + 5;
+    this.x = this.game.player.x + 100;
     this.y = 650;
   }
  

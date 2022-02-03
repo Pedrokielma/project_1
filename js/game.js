@@ -13,6 +13,7 @@ class Game {
     this.intervalId = null;
     this.life = 5;
     this.bullet = [];
+    this.score = 0
   }
   start() {
     this.player = new Player(this);
@@ -26,7 +27,7 @@ class Game {
     }, 1000 / 60);
   }
   drawBackground() {
-    this.background.src = "/images/5559852.jpg";
+    this.background.src = "./images/planetEarth.jpeg";
     this.ctx.drawImage(
       this.background,
       this.x,
@@ -34,6 +35,11 @@ class Game {
       this.canvasWidth,
       this.canvasHeight
     );
+
+    /*
+    this.background.src = './images/road.png';
+    this.ctx.drawImage(this.background, this.x, this.y, this.canvasWidth, this.canvasHeight);
+ */
   }
   createObstacles() {
     if (this.frames % 120 == 0) {
@@ -44,6 +50,7 @@ class Game {
   createBullet() {
     this.bullet.push(new Bullet(this));
   }
+
   gameOver() {
     clearInterval(this.intervalId);
   }
@@ -52,31 +59,11 @@ class Game {
     this.obstacles.forEach((eachObstacle, index, arr)=>{
       this.bullet.forEach((eachBullet)=>{
         if (eachObstacle.checkCollision(eachBullet)){
-          arr.splice(index, 1)
+           arr.splice(index, 1)
+           this.score++
         }
       })
     })
-
-   
-
-  //   let indexObstacle = [];
-  // bullet.forEach((item)=> {
-  //   const crashed = this.obstacles.some(function (obstacle, index) {
-  //     //  
-  //     item.hitTarget(obstacle)
-  //     if(item.hitTarget(obstacle)){
-      
-  //     console.log(index);
-  //     console.log(obstacle);
-  //   }
-  //     return item.hitTarget(obstacle)
-      
-  //   });
-    
-       
-      //this.earaseObstavcle()
-   
-    //console.log(crashed)
   
   }
 
@@ -99,5 +86,13 @@ class Game {
     });
     this.distroyObstacles();
     this.player.draw();
+    this.drawScore()
+  }
+  drawScore() {
+    
+    this.ctx.font = '32px serif';
+    this.ctx.fillStyle = 'white';
+    this.ctx.fillText(`Life: ${this.life}`, 100, 30);
+    this.ctx.fillText(`Score: ${(this.score)}`, 200, 30);
   }
 }

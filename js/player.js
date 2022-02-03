@@ -1,11 +1,11 @@
 class Player {
   constructor(game) {
     this.game = game;
-    this.height = 50;
-    this.width = 20;
+    this.height = 150;
+    this.width = 150;
     this.x = 230;
-    this.y = 650;
-    this.img = new Image();
+    this.y = 550;
+    this.playerImg = new Image();
   }
 
   goRight() {
@@ -17,8 +17,9 @@ class Player {
   }
 
   draw() {
-    this.game.ctx.fillStyle = "black";
+    
+    this.playerImg.src = "./images/uncleSam.png";
 
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.game.ctx.drawImage(this.playerImg, this.x, this.y, this.width, this.height);
   }
 }

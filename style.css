@@ -1,0 +1,33 @@
+body {
+  background-image: url("./images/UFO-invasion.jpeg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#canvas {
+  display: none;
+  border: 10px solid black;
+  justify-content: center;
+}
+#start-button {
+  justify-content: center;
+}
+#initial-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+}
+
+.button {
+  background-color: #f34c36; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
