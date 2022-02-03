@@ -14,6 +14,8 @@ class Game {
     this.life = 5;
     this.bullet = [];
     this.score = 0
+    this.shotSound = new Audio();
+    this.shotSound.src = "../sounds/shot-sound.mp3"
   }
   start() {
     this.player = new Player(this);
@@ -49,6 +51,8 @@ class Game {
 
   createBullet() {
     this.bullet.push(new Bullet(this));
+    this.shotSound.play()
+    
   }
 
   gameOver() {
@@ -89,9 +93,8 @@ class Game {
     this.drawScore()
   }
   drawScore() {
-    
     this.ctx.font = '32px serif';
-    this.ctx.fillStyle = 'white';
+    this.ctx.fillStyle = 'black';
     this.ctx.fillText(`Life: ${this.life}`, 100, 30);
     this.ctx.fillText(`Score: ${(this.score)}`, 200, 30);
   }

@@ -6,7 +6,7 @@ class Bullet {
     this.x = this.game.player.x + 100;
     this.y = 650;
   }
- 
+
   left() {
     return this.x;
   }
@@ -20,8 +20,6 @@ class Bullet {
     return this.y + this.height;
   }
 
-
-
   moveBullet() {
     this.y -= 6;
   }
@@ -30,5 +28,7 @@ class Bullet {
     this.game.ctx.fillStyle = "black";
 
     this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+   
+
   }
 }

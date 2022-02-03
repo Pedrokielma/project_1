@@ -1,9 +1,13 @@
 body {
-  background-image: url("./images/UFO-invasion.jpeg");
+  background-image: url("./images/background.jpeg");
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#logo {
+width: 400px;
 }
 #canvas {
   display: none;
@@ -22,7 +26,7 @@ body {
 }
 
 .button {
-  background-color: #f34c36; /* Green */
+  background-color: rgb(16, 24, 34); /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -30,4 +34,5 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  width: 100px;
 }
